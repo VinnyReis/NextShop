@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Cart } from "@/components/cart/cart";
 import "./globals.css";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,59 +32,7 @@ export default function RootLayout({
           <div className="container m-8">
             <div>
               <a href="/">Home</a>
-              <Sheet>
-                <SheetTrigger className="float-right">Cart</SheetTrigger>
-                <SheetContent className="min-w-130">
-                  <SheetHeader>
-                    <SheetTitle>Cart</SheetTitle>
-                    <SheetDescription>
-                      Add all items to your cart before completing your purchase.
-                    </SheetDescription>
-                  </SheetHeader>
-                  <div className="grid flex-1 auto-rows-min gap-4 px-4">
-                    <div className="grid gap-3">
-                      <Card className="p-2">
-                        <CardContent className="p-2">
-                          <div className="grid grid-cols-5">
-                            <div className="content-center">
-                              <img src={"https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp"}></img>
-                            </div>
-                            <div className="col-span-2">
-                              <div>
-                                <span className="text-slate-700 text-md leading-none font-medium">Gucci Bloom Eau de</span>
-                              </div>
-                            </div>
-                            <div className="col-span-2">
-                              <div>
-                                <Input  className={"h-8 p-2 w-5/10 my-2 w-full"} type="email" placeholder="Quantity" />
-                              </div>
-                              <div>
-                                <span className="text-slate-500 text-sm leading-none font-normal">Unity price $ 10.50</span>
-                              </div>
-                                <div>
-                                <span className="text-slate-500 text-sm leading-none font-medium">Total price $ 10.50</span>
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                    <div className="grid gap-3">
-                      <Card>
-                        <CardContent>
-                          teste
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </div>
-                  <SheetFooter>
-                    <Button type="submit">Finish Purchase</Button>
-                    <SheetClose asChild>
-                      <Button variant="outline">Continue Shopping</Button>
-                    </SheetClose>
-                  </SheetFooter>
-                </SheetContent>
-              </Sheet>
+              <Cart/>
             </div>
             <div className="mt-8">
               {children}

@@ -13,12 +13,12 @@ function ProductCard({ product }: any) {
           </Badge>
         }
         <Image src={product.thumbnail} alt="Placeholder" width={256} height={256} priority/>
-        <CardTitle className="h-8 text-ellipsis line-clamp-2 ">
-          <div className="text-md text-slate-500 leading-none font-medium">{product.title}</div>
+        <CardTitle className="h-10 text-ellipsis line-clamp-2 ">
+          <div className="text-md text-slate-500 leading-5 font-medium">{product.title}</div>
         </CardTitle>
         <CardDescription>
-          <span className="text-slate-700 text-xl font-semibold">$ {(product.price - (product.price * (product.discountPercentage / 100))).toFixed(2)}</span>
-          <span className="text-md font-semibold px-2"><del>$ {product.price}</del></span>
+          <span className="text-slate-700 text-xl font-semibold">${(product.price - (product.price * (product.discountPercentage / 100))).toFixed(2)}</span>
+          <span className="text-md font-semibold px-2"><del>${product.price}</del></span>
         </CardDescription>
       </CardHeader>
       <CardFooter>

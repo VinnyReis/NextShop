@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Card, CardHeader, CardDescription, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import { Reviews, ReviewType } from "@/components/reviews/reviews"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -51,8 +51,8 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
           <CardFooter>
             <div className="w-full grid gap-4">
               <div>
-                <span className="text-3xl font-bold">$ {(product.price - (product.price * (product.discountPercentage / 100))).toFixed(2)}</span>
-                <span className="text-2xl text-slate-500 font-bold px-4"><del>$ {product.price}</del></span>
+                <span className="text-3xl font-bold">${(product.price - (product.price * (product.discountPercentage / 100))).toFixed(2)}</span>
+                <span className="text-2xl text-slate-500 font-bold px-4"><del>${product.price}</del></span>
                 <Badge className="font-semibold" variant={"outline"}>-{product.discountPercentage}%</Badge>
               </div>
               <Button className="w-full">Purchase</Button>
@@ -63,6 +63,10 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
       </div>
       <div className="col-span-2">
         <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl">Reviews ({product.reviews.length})</CardTitle>
+            <CardDescription>What our customers are saying</CardDescription>
+          </CardHeader>
           <CardContent>
             <Reviews reviews={product.reviews} />
           </CardContent>

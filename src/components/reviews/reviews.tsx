@@ -18,7 +18,7 @@ export function Reviews({ reviews }: ReviewsProps){
       {reviews.map((review: ReviewType, i: number) => 
         <div className="mb-4" key={i}>
           <div className="flex items-center">
-            <div className="text-lg font-semibold">
+            <div className="text-md font-semibold">
               {review.reviewerName}
             </div>
             <div className="mx-2">
